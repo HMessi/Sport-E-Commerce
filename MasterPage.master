@@ -1,0 +1,166 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="meera.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        #form1
+        {
+            height: 777px;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div id="top">
+                <div id="logo">
+                    <asp:Image id="Image1" runat="server" height="80px" width="242px" imageurl="~/images/hlogo.png" />
+                </div>
+
+                <div id="menu">
+                    <a href="Home.aspx" class="mnu1" >HOME</a>
+                    <a href="Product.aspx" class="mnu1" >PRODUCT</a>
+                    <a href="Feedback.aspx" class="mnu1">FeedBack</a> 
+                    <a href="Registration.aspx" class="mnu1">Sign Up</a>   
+                    <a href="Login.aspx" class="mnu1">Login</a> 
+                    <a href="Contact us.aspx" class="mnu1">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="second">
+            <div id="login">
+                <table class="tbl">
+                    <tr>
+                        <td colspan="2" class="tblhead">Login Area</td>
+                    </tr>
+
+                    <tr>
+                        <td class="style3">&nbsp;</td>
+                        <td><asp:Label id="lblerror" runat="server"></asp:Label></td>
+                    </tr>
+
+                    <tr>
+                        <td class="style5">UserName :</td>
+                        <td><asp:TextBox id="TextBox1" runat="server" CssClass="txt" ontextchanged="TextBox1_TextChanged"></asp:TextBox></td>
+                    </tr>
+
+                    <tr>
+                        <td class="style5">Password :</td>
+                        <td><asp:TextBox id="TextBox2" runat="server" CssClass="txt" TextMode="Password" 
+                                ontextchanged="TextBox2_TextChanged"></asp:TextBox></td>
+                    </tr>
+
+                    <tr>
+                        <td class="style3"><asp:Image id="Image3" runat="server" Height="36px" ImageUrl="~/images/imagesds.jpg" Width="73px" /></td>
+                        <td align="left">
+                            <table class="style2">
+                                <tr>
+                                    <td><asp:Button id="Button1" runat="server" CssClass="btn" Text="Login" onclick="Button1_Click" /></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td align="left"><asp:HyperLink id="HyperLink1" runat="server" style="color: #006600" NavigateUrl="~/Registration.aspx">New User ??</asp:HyperLink></td>
+                    </tr>
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td align="left"><asp:HyperLink id="HyperLink2" runat="server" NavigateUrl="~/FPassword.aspx" style="color: #006600">Forgot Password !!</asp:HyperLink></td>
+                    </tr>
+                    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="main">
+            <div id="cate">
+                <table class="tbl">
+                    <tr>
+                        <td>
+                            <table class="tbl">
+                                <tr>
+                                    <td class="style1"><asp:TextBox id="txtsearch" runat="server" CssClass="txt" 
+                                            ontextchanged="txtsearch_TextChanged"></asp:TextBox></td>
+                                    <td><asp:Button id="Button2" runat="server" Text="Search" onclick="Button2_Click" 
+                                            Width="70px" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr><td></td></tr>
+
+                    <tr>
+                       <td class="tblhead">CATEGORY</td>
+                    </tr>
+
+                    <tr>
+                        <td align="center" bgcolor="White">
+                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+                            BorderColor="Tan" BorderWidth="1px" ShowHeader="False" 
+                            Width="99%" CellPadding="2" ForeColor="Black" GridLines="None" 
+                             BackColor="LightGoldenrodYellow" onrowcommand="GridView1_RowCommand" DataSourceID="SqlDataSource1" 
+                                onselectedindexchanged="GridView1_SelectedIndexChanged" Height="16px">
+                            <AlternatingRowStyle BackColor="PaleGoldenrod" />
+                            <Columns>
+                           
+                                <asp:BoundField DataField="CName" HeaderText="CName" SortExpression="CName" />
+
+                            </Columns>
+                            <FooterStyle BackColor="Tan" />
+                            <HeaderStyle BackColor="Tan" Font-Bold="True" />
+                            <PagerStyle BackColor="PaleGoldenrod" ForeColor="DarkSlateBlue" 
+                            HorizontalAlign="Center" />
+                            <RowStyle BorderColor="White" BorderStyle="None" BorderWidth="0px" 
+                            Font-Size="Medium" Height="30px" 
+                            HorizontalAlign="Center" />
+                            <SelectedRowStyle BackColor="DarkSlateBlue" ForeColor="GhostWhite" />
+                           
+                            </asp:GridView>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="center" bgcolor="White">&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td align="center" bgcolor="#B3ECB3">NEW ARRIVAL</td>
+                    </tr>
+
+                    <tr>
+                        <td align="center" bgcolor="White" style="border: thin solid #008000">
+                            <asp:Image ID="Image4" runat="server" Height="117px" 
+                                ImageUrl="~/img/imgabc.gif" Width="261px" /></td>
+                    </tr>
+                </table>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                    ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                    SelectCommand="SELECT [CName] FROM [CateMst]"></asp:SqlDataSource>
+            </div>
+
+            <div id="itemm">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        <div id="foot">All Rights Reserved @online MyOnline Sport</div>
+        
+    </form>
+</body>
+</html>
